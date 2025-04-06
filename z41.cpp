@@ -1,5 +1,16 @@
 #include <iostream>
 using namespace std;
+/*Да се напише функција за работа со NULL терминирани единечно поврзани листи, која на влез
+добива две пополнети листи. Функцијата треба да ги измине истовремено листите и доколку
+наиде на јазли со иста вредност, јазлите ги брише од двете листи. Изминувањето на листите да
+се направи во глобална функција promeni.
+Како дел од програмата да се напишат структури за имплементација на јазол и листа, како и
+функциите за поддршка на листата: функција за иницијализација, функции за додавање и
+бришење на елемент на почеток од листата, додавање и бришење на елемент на крај од
+листата, бришење на цела листа, печатење на елементите од листата и додавање на јазол пред
+даден јазол. Адресата на јазолот пред кој треба да се додаде новиот јазол се добива како прв
+аргумент, а вредноста на инфо полето на јазолот кој треба да се додаде се добива како втор
+аргумент на влез од функцијата.*/
 
 struct jazol{
     int pod;//podatok
@@ -43,7 +54,7 @@ struct list{
             p=p->sled;
             p->pod=n;
             p->sled=nullptr;
-        }else{//ova mi e za da nemoram kreiraj koga e prazna listata
+        }else{//ova mi e za da nemoram kreiraj koga e prazna listata, ne mi tekna mozhe samo kreiraj da se povika tuka
             head=new jazol;
             head->pod=n;
             head->sled=nullptr;
@@ -102,9 +113,9 @@ void brishiIsti(list &a,list &b){
         if(pa->pod==pb->pod && pretha!=nullptr){
             ba=pa;
             bb=pb;
-            pretha->sled=pa->sled;//prethodniot na clenot shot e ist vo a da pokazuva na clenot posle toj
+            pretha->sled=pa->sled;//prethodniot na clenot shto e ist vo a da pokazuva na clenot posle toj
             //shto e ist so toj vo lista b
-            prethb->sled=pb->sled;
+            prethb->sled=pb->sled;//istoto za lista b
             delete ba,bb;
             pomesteno=true;
         }else if(pa->pod==pb->pod){//ako nema prethoden toa znaci prvite se isti i se pomestuva head
