@@ -95,11 +95,13 @@ struct list{
     }
 };
 
-void smeni(list &a,int n){
+void smeni(list &a,int n){//ZASHTO E TOLKU PROSTO JA KE SE FRLAM💢
     int premini=0;
-    jazol *p=a.end->sled;
-    for(int i=0;i<10 && premini<n;i++){
-        for(int j=0;j<mozhniPremini[i];j++)p=p->sled;
+    jazol *p=a.end->sled;//end->sled zasho drugo ne raboteshe ko sho treba koa staiv head a so end->sled
+    //raboteshe sho e sig e sig
+    for(int i=0;i<10 && premini<n;i++){//prekinuva ako se premine dozvoleniot broj premini ili ako 
+        //nema vishe clenovi vo nizata gore
+        for(int j=0;j<mozhniPremini[i];j++)p=p->sled;//se pomestuva spored nizata
         a.vnesiPred(p,p->pod);
         premini++;
     }
